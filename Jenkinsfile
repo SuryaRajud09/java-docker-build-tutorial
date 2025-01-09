@@ -42,8 +42,8 @@ pipeline {
                     def fullImageUri = "${ecrUri}:${IMAGE_TAG}"
 
                     sh """
-                        docker tag java-app:latest public.ecr.aws/i2z0j0p5/java-app:latest
-                        docker push public.ecr.aws/i2z0j0p5/java-app:latest
+                        docker tag java-app:latest public.ecr.aws/i2z0j0p5/java-app:${IMAGE_TAG}
+                        docker push public.ecr.aws/i2z0j0p5/java-app:${IMAGE_TAG}
                     """
                 }
             }
