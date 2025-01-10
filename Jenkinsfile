@@ -72,6 +72,7 @@ pipeline {
 
                     // Apply the manifest to deploy to EKS
                     sh """
+                        kubectl apply -f service.yaml --namespace ${KUBERNETES_NAMESPACE}
                         kubectl apply -f deployment.yaml --namespace ${KUBERNETES_NAMESPACE}
                     """
                 }
