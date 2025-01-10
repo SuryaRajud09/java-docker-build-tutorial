@@ -38,7 +38,7 @@ pipeline {
         stage('Tag and Push to ECR') {
             steps {
                 script {
-                    def ecrUri = "393354520949.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}"
+                    def ecrUri = "public.ecr.aws/i2z0j0p5/java-app"
                     def fullImageUri = "${ecrUri}:${IMAGE_TAG}"
 
                     sh """
@@ -62,7 +62,7 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                 script {
-                    def ecrUri = "393354520949.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO_NAME}"
+                    def ecrUri = "public.ecr.aws/i2z0j0p5/java-app"
                     def fullImageUri = "${ecrUri}:${IMAGE_TAG}"
 
                     // Update the image in the Kubernetes manifest
