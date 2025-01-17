@@ -68,7 +68,6 @@ pipeline {
                     // Update the image in the Kubernetes manifest
                     sh """
                         sed -i 's|image: .*|image: ${fullImageUri}|' deployment.yaml
-                        docker run -itd -p 8123:8123 ${ecrUri}:${IMAGE_TAG}
                     """
 
                     // Apply the manifest to deploy to EKS
